@@ -396,8 +396,8 @@ void setXY(uint8_t x, uint8_t y) {
 }
 
 void setRxRy(uint8_t Rx, uint8_t Ry) {
-    RX = a;
-    RY = b;
+    RX = Rx;
+    RY = Rx;
 }
 
 void setPreviousDirection(bool up, bool left) {
