@@ -1,0 +1,88 @@
+{
+    "watchList": [
+        {
+            "address": "80623324",
+            "baseIndex": 0,
+            "label": "P1 X",
+            "pointerOffsets": [
+                "60",
+                "D8",
+                "5C",
+                "14C",
+                "8"
+            ],
+            "typeIndex": 3,
+            "unsigned": false
+        },
+        {
+            "address": "80623324",
+            "baseIndex": 0,
+            "label": "P1 Y",
+            "pointerOffsets": [
+                "60",
+                "D8",
+                "5C",
+                "14C",
+                "C"
+            ],
+            "typeIndex": 3,
+            "unsigned": false
+        },
+        {
+            "address": "80623324",
+            "baseIndex": 0,
+            "label": "P1 Prev X",
+            "pointerOffsets": [
+                "60",
+                "D8",
+                "5C",
+                "14C",
+                "10"
+            ],
+            "typeIndex": 3,
+            "unsigned": false
+        },
+        {
+            "address": "80623324",
+            "baseIndex": 0,
+            "label": "P1 Prev Y",
+            "pointerOffsets": [
+                "60",
+                "D8",
+                "5C",
+                "14C",
+                "14"
+            ],
+            "typeIndex": 3,
+            "unsigned": false
+        },
+        {
+            "address": "80623568",
+            "baseIndex": 0,
+            "label": "P2 X",
+            "pointerOffsets": [
+                "60",
+                "D8",
+                "5C",
+                "14C",
+                "8"
+            ],
+            "typeIndex": 3,
+            "unsigned": false
+        },
+        {
+            "address": "80623568",
+            "baseIndex": 0,
+            "label": "P2 Y",
+            "pointerOffsets": [
+                "60",
+                "D8",
+                "5C",
+                "14C",
+                "C"
+            ],
+            "typeIndex": 3,
+            "unsigned": false
+        }
+    ]
+}
