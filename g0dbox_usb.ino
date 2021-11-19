@@ -68,6 +68,36 @@ typedef struct PlusModifierCoordinates {
 } PlusModifierCoordinates;
 
 typedef struct MeleeModifierCoordinates {
+    //modX
+    uint8_t upX[2] = {128, 180};
+    uint8_t downX[2] = {128, 76};
+    uint8_t leftX[2] = {69, 128};
+    uint8_t rightX[2] = {187, 128};
+
+    uint8_t leftDownX[2] = {69, 105};
+    uint8_t rightDownX[2] = {187, 105};
+    uint8_t leftUpX[2] = {69, 151};
+    uint8_t rightUpX[2] = {187, 151};
+    //modY
+    uint8_t upY[2] = {128, 187};
+    uint8_t downY[2] = {128, 69};
+    uint8_t leftY[2] = {105, 128};
+    uint8_t rightY[2] = {151, 128};
+
+    uint8_t leftDownY[2] = {105, 69};
+    uint8_t rightDownY[2] = {151, 69};
+    uint8_t leftUpY[2] = {105, 187};
+    uint8_t rightUpY[2] = {151, 187};
+    //modZ
+    uint8_t upZ[2] = {128, 255};
+    uint8_t downZ[2] = {128, 0};
+    uint8_t leftZ[2] = {0, 128};
+    uint8_t rightZ[2] = {255, 128};
+
+    uint8_t leftDownZ[2] = {0, 89};
+    uint8_t rightDownZ[2] = {255, 89};
+    uint8_t leftUpZ[2] = {0, 255};
+    uint8_t rightUpZ[2] = {255, 255};
 } MeleeModifierCoordinates;
 
 // State
@@ -191,7 +221,18 @@ void loop() {
     boxState.modY = (digitalRead(modY) == LOW);
     boxState.modZ = (digitalRead(modZ) == LOW);
 
+    checkSwitchGame();
     updateControllerState();
+}
+
+void checkSwitchGame() {
+    if (boxState.l && boxState.controlLeft && boxState.controlDown && boxState.controlRight && boxState.a && boxState.cLeft && boxState.cUp && boxState.cRight && boxState.cDown) {
+        if (currentGame == Melee)
+            currentGame = Plus;
+        else if (currentGame == Plus) {
+            currentGame = Melee;
+        }
+    }
 }
 
 void updateControllerState() {
@@ -210,18 +251,24 @@ void setUnmodifiedCoordinates() {
 void setXModifierCoordinates() {
     if (currentGame == Plus) {
         setCoordinatesForDirection(plusMods.leftDownX, plusMods.rightDownX, plusMods.leftUpX, plusMods.rightUpX, plusMods.upX, plusMods.downX, plusMods.leftX, plusMods.rightX);
+    } else if (currentGame == Melee) {
+        setCoordinatesForDirection(meleeMods.leftDownX, meleeMods.rightDownX, meleeMods.leftUpX, meleeMods.rightUpX, meleeMods.upX, meleeMods.downX, meleeMods.leftX, meleeMods.rightX);
     }
 }
 
 void setYModifierCoordinates() {
     if (currentGame == Plus) {
         setCoordinatesForDirection(plusMods.leftDownY, plusMods.rightDownY, plusMods.leftUpY, plusMods.rightUpY, plusMods.upY, plusMods.downY, plusMods.leftY, plusMods.rightY);
+    } else if (currentGame == Melee) {
+        setCoordinatesForDirection(meleeMods.leftDownY, meleeMods.rightDownY, meleeMods.leftUpY, meleeMods.rightUpY, meleeMods.upY, meleeMods.downY, meleeMods.leftY, meleeMods.rightY);
     }
 }
 
 void setZModifierCoordinates() {
     if (currentGame == Plus) {
         setCoordinatesForDirection(plusMods.leftDownZ, plusMods.rightDownZ, plusMods.leftUpZ, plusMods.rightUpZ, plusMods.upZ, plusMods.downZ, plusMods.leftZ, plusMods.rightZ);
+    } else if (currentGame == Melee) {
+        setCoordinatesForDirection(meleeMods.leftDownZ, meleeMods.rightDownZ, meleeMods.leftUpZ, meleeMods.rightUpZ, meleeMods.upZ, meleeMods.downZ, meleeMods.leftZ, meleeMods.rightZ);
     }
 }
 
@@ -349,8 +396,8 @@ void setXY(uint8_t x, uint8_t y) {
 }
 
 void setRxRy(uint8_t Rx, uint8_t Ry) {
-    RX = Rx;
-    RY = Ry;
+    RX = a;
+    RY = b;
 }
 
 void setPreviousDirection(bool up, bool left) {
