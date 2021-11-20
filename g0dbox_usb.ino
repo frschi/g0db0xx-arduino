@@ -63,8 +63,8 @@ typedef struct PlusModifierCoordinates {
 
     uint8_t leftDownZ[2] = {0, 90};
     uint8_t rightDownZ[2] = {255, 90};
-    uint8_t leftUpZ[2] = {0, 255};
-    uint8_t rightUpZ[2] = {255, 255};
+    uint8_t leftUpZ[2] = {0, 166};
+    uint8_t rightUpZ[2] = {255, 166};
 } PlusModifierCoordinates;
 
 typedef struct MeleeModifierCoordinates {
@@ -96,8 +96,8 @@ typedef struct MeleeModifierCoordinates {
 
     uint8_t leftDownZ[2] = {0, 89};
     uint8_t rightDownZ[2] = {255, 89};
-    uint8_t leftUpZ[2] = {0, 255};
-    uint8_t rightUpZ[2] = {255, 255};
+    uint8_t leftUpZ[2] = {0, 167};
+    uint8_t rightUpZ[2] = {255, 167};
 } MeleeModifierCoordinates;
 
 // State
