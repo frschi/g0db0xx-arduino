@@ -36,68 +36,68 @@ enum Socd {
 
 typedef struct PlusModifierCoordinates {
     //modX
-    uint8_t upX[] = {128, 187};
-    uint8_t downX[] = {128, 69};
-    uint8_t leftX[] = {60, 128};
-    uint8_t rightX[] = {196, 128};
+    uint8_t upX[2] = {128, 187};
+    uint8_t downX[2] = {128, 69};
+    uint8_t leftX[2] = {60, 128};
+    uint8_t rightX[2] = {196, 128};
 
-    uint8_t leftDownX[] = {60, 95};
-    uint8_t rightDownX[] = {196, 95};
-    uint8_t leftUpX[] = {60, 161};
-    uint8_t rightUpX[] = {196, 161};
+    uint8_t leftDownX[2] = {60, 95};
+    uint8_t rightDownX[2] = {196, 95};
+    uint8_t leftUpX[2] = {60, 161};
+    uint8_t rightUpX[2] = {196, 161};
     //modY
-    uint8_t upY[] = {128, 161};
-    uint8_t downY[] = {128, 95};
-    uint8_t leftY[] = {100, 128};
-    uint8_t rightY[] = {156, 128};
+    uint8_t upY[2] = {128, 161};
+    uint8_t downY[2] = {128, 95};
+    uint8_t leftY[2] = {100, 128};
+    uint8_t rightY[2] = {156, 128};
 
-    uint8_t leftDownY[] = {100, 71};
-    uint8_t rightDownY[] = {156, 71};
-    uint8_t leftUpY[] = {100, 185};
-    uint8_t rightUpY[] = {156, 185};
+    uint8_t leftDownY[2] = {100, 71};
+    uint8_t rightDownY[2] = {156, 71};
+    uint8_t leftUpY[2] = {100, 185};
+    uint8_t rightUpY[2] = {156, 185};
     //modZ
-    uint8_t upZ[] = {128, 255};
-    uint8_t downZ[] = {128, 0};
-    uint8_t leftZ[] = {0, 128};
-    uint8_t rightZ[] = {255, 128};
+    uint8_t upZ[2] = {128, 255};
+    uint8_t downZ[2] = {128, 0};
+    uint8_t leftZ[2] = {0, 128};
+    uint8_t rightZ[2] = {255, 128};
 
-    uint8_t leftDownZ[] = {0, 90};
-    uint8_t rightDownZ[] = {255, 90};
-    uint8_t leftUpZ[] = {0, 166};
-    uint8_t rightUpZ[] = {255, 166};
+    uint8_t leftDownZ[2] = {0, 90};
+    uint8_t rightDownZ[2] = {255, 90};
+    uint8_t leftUpZ[2] = {0, 166};
+    uint8_t rightUpZ[2] = {255, 166};
 } PlusModifierCoordinates;
 
 typedef struct MeleeModifierCoordinates {
     //modX
-    uint8_t upX[] = {128, 180};
-    uint8_t downX[] = {128, 76};
-    uint8_t leftX[] = {69, 128};
-    uint8_t rightX[] = {187, 128};
+    uint8_t upX[2] = {128, 180};
+    uint8_t downX[2] = {128, 76};
+    uint8_t leftX[2] = {69, 128};
+    uint8_t rightX[2] = {187, 128};
 
-    uint8_t leftDownX[] = {69, 105};
-    uint8_t rightDownX[] = {187, 105};
-    uint8_t leftUpX[] = {69, 151};
-    uint8_t rightUpX[] = {187, 151};
+    uint8_t leftDownX[2] = {69, 105};
+    uint8_t rightDownX[2] = {187, 105};
+    uint8_t leftUpX[2] = {69, 151};
+    uint8_t rightUpX[2] = {187, 151};
     //modY
-    uint8_t upY[] = {128, 187};
-    uint8_t downY[] = {128, 69};
-    uint8_t leftY[] = {105, 128};
-    uint8_t rightY[] = {151, 128};
+    uint8_t upY[2] = {128, 187};
+    uint8_t downY[2] = {128, 69};
+    uint8_t leftY[2] = {105, 128};
+    uint8_t rightY[2] = {151, 128};
 
-    uint8_t leftDownY[] = {105, 69};
-    uint8_t rightDownY[] = {151, 69};
-    uint8_t leftUpY[] = {105, 187};
-    uint8_t rightUpY[] = {151, 187};
+    uint8_t leftDownY[2] = {105, 69};
+    uint8_t rightDownY[2] = {151, 69};
+    uint8_t leftUpY[2] = {105, 187};
+    uint8_t rightUpY[2] = {151, 187};
     //modZ
-    uint8_t upZ[] = {128, 255};
-    uint8_t downZ[] = {128, 0};
-    uint8_t leftZ[] = {0, 128};
-    uint8_t rightZ[] = {255, 128};
+    uint8_t upZ[2] = {128, 255};
+    uint8_t downZ[2] = {128, 0};
+    uint8_t leftZ[2] = {0, 128};
+    uint8_t rightZ[2] = {255, 128};
 
-    uint8_t leftDownZ[] = {0, 89};
-    uint8_t rightDownZ[] = {255, 89};
-    uint8_t leftUpZ[] = {0, 167};
-    uint8_t rightUpZ[] = {255, 167};
+    uint8_t leftDownZ[2] = {0, 89};
+    uint8_t rightDownZ[2] = {255, 89};
+    uint8_t leftUpZ[2] = {0, 167};
+    uint8_t rightUpZ[2] = {255, 167};
 } MeleeModifierCoordinates;
 
 // State
@@ -332,7 +332,7 @@ void setCoordinatesForDirection(uint8_t leftDown[2], uint8_t rightDown[2], uint8
 
 void setCStickCoordinates() {
     if (boxState.modX && boxState.modY)
-        return
+        return;
     if (boxState.cDown) {
         setRxRy(down[0], down[1]);
     } else if (boxState.cUp) {
