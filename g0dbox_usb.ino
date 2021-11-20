@@ -172,7 +172,12 @@ uint8_t rightDown[2] = {255, 0};
 uint8_t leftUp[2] = {0, 255};
 uint8_t rightUp[2] = {255, 255};
 
+
+unsigned long myTime;
+
 void setup() {
+    myTime = millis();
+
     pinMode(a, INPUT_PULLUP);
     pinMode(b, INPUT_PULLUP);
     pinMode(x, INPUT_PULLUP);
@@ -227,10 +232,13 @@ void loop() {
 
 void checkSwitchGame() {
     if (boxState.l && boxState.controlLeft && boxState.controlDown && boxState.controlRight && boxState.a && boxState.cLeft && boxState.cUp && boxState.cRight && boxState.cDown) {
-        if (currentGame == Melee)
-            currentGame = Plus;
-        else if (currentGame == Plus) {
-            currentGame = Melee;
+        if (millis() > myTime + 3000) {
+            if (currentGame == Melee)
+                currentGame = Plus;
+            else if (currentGame == Plus) {
+                currentGame = Melee;
+            }
+            myTime = millis();
         }
     }
 }
