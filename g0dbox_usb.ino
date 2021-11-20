@@ -237,7 +237,7 @@ void checkSwitchGame() {
 
 void updateControllerState() {
     setActiveDirection();
-    isModifierPressed() ? setModifiedCoordinates() : setUnmodifiedCoordinates();
+    isModifierPressed() ? handleModifiers() : setUnmodifiedCoordinates();
     setCStickCoordinates();
     updateJoystickAxis();
     updateButtons();
@@ -272,14 +272,23 @@ void setZModifierCoordinates() {
     }
 }
 
-void setModifiedCoordinates() {
-    if (boxState.modX) {
+void handleModifiers() {
+    if (boxState.modX && boxState.modY) {
+        updateDPad();
+    } else if (boxState.modX) {
         setXModifierCoordinates();
     } else if (boxState.modY) {
         setYModifierCoordinates();
     } else if (boxState.modZ) {
         setZModifierCoordinates();
     }
+}
+
+void updateDPad() {
+    Joystick.setButton(8, boxState.cUp);
+    Joystick.setButton(9, boxState.cDown);
+    Joystick.setButton(10, boxState.cLeft);
+    Joystick.setButton(11, boxState.cRight);
 }
 
 void setCoordinatesForDirection(uint8_t leftDown[2], uint8_t rightDown[2], uint8_t leftUp[2], uint8_t rightUp[2], uint8_t up[2], uint8_t down[2], uint8_t left[2], uint8_t right[2]) {
